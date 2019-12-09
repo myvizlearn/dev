@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{concept.text}}</ion-title>
+  </ion-toolbar>
+  <ion-fab vertical="top" horizontal="end" slot="fixed">
+    <ion-button (click)="closeModal()" color="danger">
+      <ion-icon name="close"></ion-icon>
+    </ion-button>
+  </ion-fab>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="formResource" (ngSubmit)="manage(formResource.value)">
+    <!-- <ion-label horizontal="center">{{concept.text}}</ion-label> -->
+
+    
+
+  <div formArrayName="resource">
+      <ion-note>
+          Add Multiple Resources by clicking 'Add New Resource'
+        </ion-note>
+    <div *ngFor="let address of formResource.controls.resource.controls; let i=index">
+        <!-- address header, show remove button when more than one address available -->
+        <div>
+          <ion-item>
+            
+              <ion-label>
+                  Resource #{{i + 1}}
+              </ion-label>
+            
+          </ion-item>
+
+            <span *ngIf="formResource.controls.resource.controls.length > 1" 
+                (click)="removeResource(i)">
+            </span>
+        </div>
+        <div [formGroupName]="i">
+            <div>
+                <ion-item>
+                    <ion-label>Type</ion-label>
+                    <ion-select formControlName = "resourcetype" placeholder="Select Resource Type">
+                      <ion-select-option value="text">Text</ion-select-option>
+                      <ion-select-option value="link">Link</ion-select-option>
+                      <ion-select-option value="video">Video</ion-select-option>
+                    </ion-select>
+                  </ion-item>
+              <ion-item>
+                <ion-input type="text" formControlName="name"></ion-input>
+                <!--display error message if street is not valid-->
+              </ion-item>
+            </div>
+        </div>
+    </div>
+    </div>
+    <ion-button class="ion-float-left" icon-left clear (click)="addNewResource()">
+        <ion-icon name="add"></ion-icon>
+        Add a Resource
+      </ion-button>
+
+      <ion-button 
+      color="primary" 
+      expand="block"
+      (click)="manage(formResource.value)">Submit</ion-button>
+    </form>
+  </ion-content>
+        
+   

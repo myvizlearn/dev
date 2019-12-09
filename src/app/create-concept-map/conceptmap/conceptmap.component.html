@@ -1,0 +1,25 @@
+<style>
+/* Concept map element specific styles*/
+:host {
+  display: block;
+  position: absolute;
+  overflow: hidden;
+}
+</style>
+
+<!-- define SVG arrow marker used by propositions -->
+<svg>
+  <defs>
+    <marker id="cm-arrow"  refX="10" refY="5" markerWidth="12" markerHeight="8" orient="auto" >
+      <path stroke="#f00" stroke-width="3" d="M 0,20 L 10,5 L 0,10 L 4,5 z"/>
+    </marker>
+  </defs>
+</svg>
+
+<cm-concept *ngFor="let c of cmap.concepts" [concept]="c" [style.top.px]="c.y" [style.left.px]="c.x" [(cmContenteditableModel)]="c.text">{{c.x}}-{{c.y}}</cm-concept>
+<cm-proposition *ngFor="let p of cmap.propositions" [proposition]="p"></cm-proposition>
+
+<div *ngIf="rubberband" id="rubber-band" [style.top.px] = "rubberband.top" [style.left.px] = "rubberband.left" [style.width.px] = "rubberband.width" [style.height.px] = "rubberband.height"></div>
+
+<cm-handle *ngIf="getSingleSelection" [from]="getSingleSelection"></cm-handle>
+

@@ -17,10 +17,32 @@ export class AppComponent {
       icon: 'home'
     },
     {
-      title: 'List',
+      title: 'Explore',
       url: '/list',
       icon: 'list'
     }
+    ,
+    {
+      title: 'Create Concept Map',
+      url: '/create-concept-map',
+      icon: 'create'
+    },
+    // {
+    //   title: 'Edit Concept Map',
+    //   url: '/edit-concept-map',
+    //   icon: 'pricetag'
+    // },
+    // {
+    //   title: 'Concept Map',
+    //   url: '/sample',
+    //   icon: 'shuffle'
+    // },
+    {
+      title: 'Login',
+      url: '/login',
+      icon: 'contact'
+    }
+    
   ];
 
   constructor(

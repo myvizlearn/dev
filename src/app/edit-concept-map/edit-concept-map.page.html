@@ -1,0 +1,41 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+  
+      <ion-title>
+          Edit Concept Map
+      </ion-title>
+      
+    </ion-toolbar>
+    
+  </ion-header>
+
+<ion-content>
+    
+     <cm-concept-map></cm-concept-map>
+</ion-content>
+
+<ion-footer>
+    <ion-grid style="background-color: gray; height: 10%;">
+        <ion-row >
+            <ion-col>
+                <ion-button>
+                  <ion-icon slot="icon-only" name='Open'></ion-icon>Select
+                </ion-button>
+              </ion-col> 
+          <ion-col>
+            <ion-button (click)="loadLocal()"> 
+              <ion-icon slot="icon-only" name='download'></ion-icon>Load Local File
+            </ion-button>
+          </ion-col>
+          <ion-col>
+              <ion-button >
+                <ion-icon slot="icon-only" name='remove-circle-outline'></ion-icon>Clear
+              </ion-button>
+            </ion-col>
+           
+        </ion-row>
+        </ion-grid>
+</ion-footer>

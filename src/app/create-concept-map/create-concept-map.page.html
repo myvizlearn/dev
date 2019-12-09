@@ -1,0 +1,106 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title>
+        Create Concept Map
+    </ion-title>
+    <ion-item>
+      <ion-label item-start>Title <span color="red">*</span></ion-label>
+      <ion-input item-start required type="text" autocapitalize="words" autofocus=true inputmode="text" placeholder="Enter here" clearInput=true [(ngModel)]="conceptMapTitle" ></ion-input>
+    </ion-item>
+    
+  </ion-toolbar>
+  
+</ion-header>
+<ion-nav>
+
+</ion-nav>
+
+
+<ion-content id="containerback">
+    
+
+    <!-- <ion-button (onclick)="export()">
+      <ion-icon slot="icon-only" name="save"></ion-icon>
+    </ion-button> -->
+
+  <!-- <ion-list>
+    <ion-radio-group (ionSelect)='onSelection($event)'>
+      <ion-row>
+        <ion-col>
+          <ion-list-header align="right">
+            Make a Selection
+          </ion-list-header>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label>Add New Concept Map</ion-label>
+            <ion-radio value="addConcept"></ion-radio>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label>Edit Existing Concept Map</ion-label>
+            <ion-radio value="editConcept"></ion-radio>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-radio-group>
+  </ion-list> -->
+
+  <!-- <p-menubar id="menubar" [model]='menu'>Angular2 Concept map</p-menubar> -->
+  <!-- <ion-input required type="text" placeholder="Enter Concept Map Title"></ion-input> -->
+  <cm-concept-map></cm-concept-map>
+  <div *ngIf="conceptMapTitle == null"
+  class="help-text"
+    style="left: 50%; top: 50%; transform: translate(-50%, -50%);">
+  Title Missing
+  </div>
+  <div
+    *ngIf="isEmpty && conceptMapTitle != null"
+    class="help-text"
+    style="left: 50%; top: 50%; transform: translate(-50%, -50%);"
+  >
+    Double click to create a concept
+  </div>
+  <ion-fab *ngIf="cmap.getSingleSelection" vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="addResource(cmap.getSingleSelection.concept,conceptMapTitle)">
+      <ion-icon name="add">
+      </ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <div
+    *ngIf="cmap.getSingleSelection"
+    style="right: 50%; top: 50%; transform: translate(-50%, -50%);"
+  >
+    Appear Here 
+  </div>
+
+ 
+
+</ion-content>
+<ion-footer>
+    <ion-grid style="background-color: gray; height: 10%;">
+        <ion-row >
+            <ion-col>
+                <ion-button  (click)='save()'>
+                  <ion-icon slot="icon-only" name='save'></ion-icon>Save
+                </ion-button>
+              </ion-col> 
+          <ion-col>
+            <ion-button (click)='export()'> 
+              <ion-icon slot="icon-only" name='download'></ion-icon>Download
+            </ion-button>
+          </ion-col>
+          <ion-col>
+              <ion-button (click)='clear()'>
+                <ion-icon slot="icon-only" name='remove-circle-outline'></ion-icon>Clear
+              </ion-button>
+            </ion-col>
+           
+        </ion-row>
+        </ion-grid>
+</ion-footer>

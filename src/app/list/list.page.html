@@ -4,24 +4,60 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      List
+      Explore
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-item *ngFor="let item of items">
-      <ion-icon [name]="item.icon" slot="start"></ion-icon>
-      {{item.title}}
-      <div class="item-note" slot="end">
-        {{item.note}}
-      </div>
-    </ion-item>
-  </ion-list>
-  <!--
-    <div *ngIf="selectedItem" padding>
-      You navigated here from <b>{{selectedItem.title }}</b>
-    </div>
-  -->
+  <ion-item label>
+    <h3>Select subject area</h3>
+  </ion-item>
+  <ion-grid fixed=true>
+    <ion-row height="12">
+      <ion-col size="6">
+        <ion-card button routerLink="/sample">
+          <img src="/assets/astronomy.svg" alt="" />
+          <ion-card-header>
+            <ion-card-title>Solar System</ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content> </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6">
+          <ion-card button routerLink="/plants">
+            <img src="/assets/leaf.svg" alt="" />
+            <ion-card-header>
+              <ion-card-title>Plants</ion-card-title>
+            </ion-card-header>
+  
+            <ion-card-content> </ion-card-content>
+          </ion-card>
+        </ion-col>
+    </ion-row>
+    <ion-row height="12">
+        <ion-col size="6">
+          <ion-card button>
+            <img src="/assets/worldwide.svg" alt="" />
+            <ion-card-header>
+              <ion-card-title>Earth</ion-card-title>
+            </ion-card-header>
+  
+            <ion-card-content> </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size="6">
+            <ion-card button>
+              <img src="/assets/worldwide.svg" alt="" />
+              <ion-card-header>
+                <ion-card-title>Subject Area 4</ion-card-title>
+              </ion-card-header>
+    
+              <ion-card-content> </ion-card-content>
+            </ion-card>
+          </ion-col>
+      </ion-row>
+  </ion-grid>
+
 </ion-content>

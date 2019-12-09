@@ -1,0 +1,13 @@
+# Create an Internet Explorer object
+$ie = New-Object -ComObject 'internetExplorer.Application'
+$ie.Visible= $true # Make it visible
+
+# Open all websites
+$ie.Navigate("https://myvizlearn.github.io/")
+
+while ($ie.Busy -eq $true){Start-Sleep -seconds 10;}
+
+$usernamefield = $ie.Document.getElementByID('ion-input-0')
+$usernamefield.value = 'test@test.com'
+$passwordfield = $ie.Document.getElementByID('ion-input-')
+$passwordfield.value = 'password'

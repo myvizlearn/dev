@@ -29,7 +29,8 @@
                 "glob": "**/*.svg",
                 "input": "node_modules/ionicons/dist/ionicons/svg",
                 "output": "./svg"
-              }
+              },
+              { "glob": "**/*", "input": "./node_modules/mxgraph/javascript/src", "output": "/assets/mxgraph" }
             ],
             "styles": [
               {
@@ -39,7 +40,8 @@
                 "input": "src/global.scss"
               }
             ],
-            "scripts": []
+            "scripts": [ "src/assets/js/mxgraph.conf.js",
+               "node_modules/mxgraph/javascript/mxClient.js"]
           },
           "configurations": {
             "production": {
@@ -99,7 +101,8 @@
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "styles": [],
-            "scripts": [],
+            "scripts": [ "src/assets/js/mxgraph.conf.js",
+              "node_modules/mxgraph/javascript/mxClient.js"],
             "assets": [
               {
                 "glob": "favicon.ico",
@@ -110,7 +113,8 @@
                 "glob": "**/*",
                 "input": "src/assets",
                 "output": "/assets"
-              }
+              },
+              { "glob": "**/*", "input": "./node_modules/mxgraph/javascript/src", "output": "/assets/mxgraph" }
             ]
           },
           "configurations": {
