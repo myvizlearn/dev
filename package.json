@@ -29,7 +29,7 @@
     "@ionic/angular": "^4.7.1",
     "@swimlane/ngx-graph": "^6.2.0",
     "@types/mxgraph": "github:lgleim/mxgraph-typings",
-    "chart.js": "^2.9.2",
+    "chart.js": "^2.9.4",
     "core-js": "^2.5.4",
     "firebase": "^7.3.0",
     "mxgraph": "^4.0.6",
